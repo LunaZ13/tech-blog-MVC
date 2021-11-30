@@ -1,7 +1,13 @@
-<ol class="post-list">
+<article class="post">
+
     {{#each posts as |post|}}
-  <li>
-      {{> post-info post }}
-  </li>
-  {{/each}}
-</ol>
+    <div class="card">
+        <h2>
+            <a href="/post/{{id}}">{{post.title}}</a>
+        </h2>
+        {{!-- <p>Posted by {{User.username}} on {{format_date created_at}}</p> --}}
+    </div>
+    <p class="card-body">{{content}}</p>
+    {{/each}}
+
+</article>
