@@ -54,7 +54,6 @@
     border: none;
     outline: none;
     background-color: var(--light-dark);
-    box-shadow: 3px 3px var(--dark);
     transform: translate(-1px, -1px);
   }
   
@@ -162,7 +161,15 @@
   .card-body {
     padding: 2.5%;
   }
-  
+
+  footer {
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    font-size: 110%;
+  }
+
   /* FORM */
   .form-label,
   .form-input,

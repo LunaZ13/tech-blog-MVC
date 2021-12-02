@@ -1,0 +1,39 @@
+<article class="post">
+    {{#each posts as |post|}}
+    <div class="card">
+        <h2>
+            <a href="/post/{{id}}">{{post.title}}</a>
+        </h2>
+        <p>Posted by {{User.username}} on {{format_date created_at}}</p>
+    </div>
+    <p class="card-body">{{content}}</p>
+    {{/each}}
+
+</article>
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form>
+{{/if}}
+
+<div class="comments">
+  {{#each post.comments}}
+  <section class="comment">
+    <div class="meta">
+      {{user.username}} on {{created_at}}
+    </div>
+    <div class="text">
+      {{comment_text}}
+    </div>
+  </section>
+  {{/each}}
+</div>
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}

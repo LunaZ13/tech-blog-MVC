@@ -4,25 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <title>Tech Blog</title>
-    {{!-- <link rel="stylesheet" href="/style.css"> </link> --}}
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body>
+<body class="flex-column min-100-vh">
   <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Tech Blog for Techies</a>
+    <header class="hero">
+      <h1 class="app-title">
+        <a href="/">Tech Blog For Techies</a>
       </h1>
-      <nav>
+      <nav class="nav">
           <button id="logout" class="btn-no-style">logout</button>
           <a href="/login">login</a>
       </nav>
     </header>
+
     <main>
       {{{ body }}}
     </main>
+
     <footer>
       Thanks for visiting!
     </footer>
