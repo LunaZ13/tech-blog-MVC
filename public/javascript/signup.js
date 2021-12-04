@@ -16,8 +16,12 @@ async function signupFormHandler(event) {
       // check response status
       if (response.ok) {
         console.log('success');
-      } else {
-          alert(response.statusText);
-      }     
+
+        document.location.replace('/dashboard');
+        } else {
+            alert(response.statusText);
+            }     
+        }
     }
-  }
+
+    document.querySelector('#signup-form').addEventListener('submit', signupFormHandler);

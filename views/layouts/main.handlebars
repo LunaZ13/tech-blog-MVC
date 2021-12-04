@@ -9,30 +9,27 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
-<body class="flex-column min-100-vh">
-  <div class="wrapper">
+<body class="flex-column">
     <header class="hero">
-      <h1 class="app-title">
-        <a href="/">Tech Blog For Techies</a>
-      </h1>
-      <nav class="nav">
-          {{#if loggedIn}}
-          <a href="/dashboard">dashboard</a>
-          <button id="logout" class="btn-no-style">logout</button>
-          {{else}}
-          <a href="/login">login</a>
-          {{/if}}
-      </nav>
+        <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            {{#if loggedIn}}
+            <a href="#">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+        </nav>
+      <h1 class="app-title">Tech Blog For Techies</h1>
     </header>
 
-    <main>
+    <main class="col-auto">
       {{{ body }}}
     </main>
 
     <footer>
       Thanks for visiting!
     </footer>
-  </div>
 {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
 {{/if}}

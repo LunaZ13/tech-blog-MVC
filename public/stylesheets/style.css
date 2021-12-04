@@ -37,9 +37,19 @@
     margin: 20px auto;
     width: 94%;
   }
+
+  a {
+    text-decoration: none;
+  }
   
   p {
     font-size: 1.2rem;
+  }
+
+  header nav a {
+    color: var(--primary);
+    padding: 10px;
+    font-size:larger;
   }
   
    .btn {
@@ -162,6 +172,11 @@
     padding: 2.5%;
   }
 
+  .nav {
+    padding: 10px;
+    line-height: 1.25;
+  }
+
   footer {
     border-top: 1px solid #ccc;
     display: flex;
@@ -184,7 +199,7 @@
   
   .form-input {
     width: 100%;
-    padding: 3%;
+    padding: 2%;
     margin: 5px 0;
     font-size: 1.2rem;
     border: 2px solid var(--light-dark);
