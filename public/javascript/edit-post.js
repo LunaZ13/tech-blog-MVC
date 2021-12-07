@@ -1,3 +1,4 @@
+// edit post title and content function
 async function editFormHandler(event) {
     event.preventDefault();
   

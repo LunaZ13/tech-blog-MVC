@@ -1,3 +1,4 @@
+// sign up function
 async function signupFormHandler(event) {
     event.preventDefault();
   
