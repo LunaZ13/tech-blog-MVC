@@ -37,6 +37,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
+    console.log(req.body)
     User.create({
         username: req.body.username,
         password: req.body.password
@@ -54,6 +55,7 @@ router.post('/', (req, res) => {
     });
 
 router.post('/login', (req, res) => {
+    console.log(req.body)
     User.findOne({
         where: {
             username: req.body.username

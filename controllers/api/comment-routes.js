@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
 // POST /api/comments
 router.post('/', (req, res) => {
     // check the session
+    console.log(req.body)
     if (req.session) {
     Comment.create({
         comment_text: req.body.comment_text,

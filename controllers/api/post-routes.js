@@ -70,9 +70,11 @@ router.post('/', (req, res) => {
 
 // PUT /api/posts/1
 router.put('/:id', (req, res) => {
+    console.log('UPDATE HAPPENING!',req.body)
     Post.update(
         {
-            title: req.body.title
+            title: req.body.title, content: req.body.content
+
         },
         {
             where: {
