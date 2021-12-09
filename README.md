@@ -13,7 +13,7 @@ A CMS-style blog site, similar to a wordpress site. Developers can publish their
 
 ## Usage:
 User is able to sign up by creating a username and password. Then user can log in and log out, user can can also click on dashboard link. User is able to create new blog posts, edit posts, and delete posts when logged in. User can also comment on posts created by other users.
-Click on the following link to view site https://damp-shelf-34392.herokuapp.com/
+Click on the following link to view site https://morning-oasis-23318.herokuapp.com/
 
 ![Alt Text](Images/Screenshot.png)
 
