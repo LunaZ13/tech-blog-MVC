@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 
 // POST /api/comments
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     // check the session
     console.log(req.body)
     if (req.session) {
@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 
 
 // DELETE /api/comments/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id

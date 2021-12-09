@@ -55,7 +55,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/posts
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         content: req.body.content,
@@ -69,7 +69,7 @@ router.post('/', (req, res) => {
 });
 
 // PUT /api/posts/1
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     console.log('UPDATE HAPPENING!',req.body)
     Post.update(
         {
@@ -96,7 +96,7 @@ router.put('/:id', (req, res) => {
 });
 
 // DELETE /api/posts/1
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id
