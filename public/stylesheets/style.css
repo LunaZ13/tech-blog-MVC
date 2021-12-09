@@ -38,6 +38,10 @@
     width: 94%;
   }
 
+  h2 a {
+    color: var(--primary);
+  }
+
   a {
     text-decoration: none;
   }
