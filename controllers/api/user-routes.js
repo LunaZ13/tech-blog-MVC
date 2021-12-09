@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -36,18 +37,25 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
+    console.log(req.body)
     User.create({
         username: req.body.username,
         password: req.body.password
     })
-    .then(userData => res.json(userData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    })
-});
+    .then(userData => {
+        // session variables
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+
+            res.json(userData);
+            })
+        })
+    });
 
 router.post('/login', (req, res) => {
+    console.log(req.body)
     User.findOne({
         where: {
             username: req.body.username
@@ -64,8 +72,26 @@ router.post('/login', (req, res) => {
             res.status(400).json({ message: 'Incorrect Password!'});
             return;
         }
-        res.json({ user: userData, message: 'Successfully logged in '});
+        req.session.save(() => {
+            // session variables
+            req.session.user_id = userData.id;
+            req.session.username = userData.username;
+            req.session.loggedIn = true;
+
+            res.json({ user: userData, message: 'Successfully logged in '});
+        })
     })
+});
+
+router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    }
+    else {
+        res.status(404).end();
+    }
 });
 
 // PUT /api/users/1
